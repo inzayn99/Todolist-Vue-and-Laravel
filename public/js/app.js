@@ -5278,6 +5278,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -27883,14 +27887,26 @@ var staticRenderFns = [
       _c("div", { staticClass: "row justify-content-center mt-5" }, [
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Welcome to Vue.jS"),
-            ]),
+            _c("div", { staticClass: "card-header" }, [_vm._v("Todo List")]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example goo.\n                "
-              ),
+              _c("div", { staticClass: "input-group" }, [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    placeholder: "Todo..",
+                    "aria-label": "todo",
+                    "aria-describedby": "todo",
+                  },
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-info", attrs: { type: "button" } },
+                  [_vm._v("Add")]
+                ),
+              ]),
             ]),
           ]),
         ]),
