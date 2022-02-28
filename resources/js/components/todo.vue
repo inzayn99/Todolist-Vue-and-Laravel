@@ -18,10 +18,13 @@
                         <th>Name</th>
                         <th>Action</th>
                         </thead>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
