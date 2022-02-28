@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Laravel</title>
+        <title>TodoList</title>
 
         <!-- Fonts -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -15,7 +15,7 @@
     </head>
     <body>
     <div id="app">
-        <example-component />
+        <todo />
 
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
