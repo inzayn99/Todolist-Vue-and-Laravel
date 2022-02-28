@@ -5296,9 +5296,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      todos: [],
+      api: 'http://127.0.0.1:8000/api/todos'
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    var _this = this;
+
+    // get api data
+    this.axios.get(this.api).then(function (res) {
+      _this.todos = res.data;
+    });
   }
 });
 
@@ -5308,13 +5320,23 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.esm.min.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_2__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_1__["default"], (axios__WEBPACK_IMPORTED_MODULE_0___default()));
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
-Vue.component('todo', (__webpack_require__(/*! ./components/todo.vue */ "./resources/js/components/todo.vue")["default"]));
-var app = new Vue({
+vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('todo', (__webpack_require__(/*! ./components/todo.vue */ "./resources/js/components/todo.vue")["default"]));
+var app = new vue__WEBPACK_IMPORTED_MODULE_2__["default"]({
   el: '#app'
 });
 
@@ -27802,6 +27824,22 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/vue-axios/dist/vue-axios.esm.min.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vue-axios/dist/vue-axios.esm.min.js ***!
+  \**********************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ plugin)
+/* harmony export */ });
+/* module decorator */ module = __webpack_require__.hmd(module);
+function _typeof(e){return(_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function plugin(e,n){if(!e.vueAxiosInstalled){var o=isAxiosLike(n)?migrateToMultipleInstances(n):n;if(isValidConfig(o)){var t=getVueVersion(e);if(t){var i=t<3?registerOnVue2:registerOnVue3;Object.keys(o).forEach((function(n){i(e,n,o[n])})),e.vueAxiosInstalled=!0}else console.error("[vue-axios] unknown Vue version")}else console.error("[vue-axios] configuration is invalid, expected options are either <axios_instance> or { <registration_key>: <axios_instance> }")}}function registerOnVue2(e,n,o){Object.defineProperty(e.prototype,n,{get:function(){return o}}),e[n]=o}function registerOnVue3(e,n,o){e.config.globalProperties[n]=o,e[n]=o}function isAxiosLike(e){return e&&"function"==typeof e.get&&"function"==typeof e.post}function migrateToMultipleInstances(e){return{axios:e,$http:e}}function isValidConfig(e){return"object"===_typeof(e)&&Object.keys(e).every((function(n){return isAxiosLike(e[n])}))}function getVueVersion(e){return e&&e.version&&Number(e.version.split(".")[0])}"object"==("undefined"==typeof exports?"undefined":_typeof(exports))?module.exports=plugin:"function"==typeof define&&__webpack_require__.amdO?define([],(function(){return plugin})):window.Vue&&window.axios&&window.Vue.use&&Vue.use(plugin,window.axios);
+
+/***/ }),
+
 /***/ "./resources/js/components/todo.vue":
 /*!******************************************!*\
   !*** ./resources/js/components/todo.vue ***!
@@ -27890,61 +27928,73 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center mt-5" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Todo List")]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(
+            "\n                " + _vm._s(_vm.todos) + "\n                "
+          ),
+          _c("table", { staticClass: "table table-bordered mt-4" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.todos, function (todo, index) {
+                return _c("tr", { key: index }, [
+                  _c("td", [_vm._v(_vm._s(index))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(todo.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v("Delete")]),
+                ])
+              }),
+              0
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center mt-5" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("Todo List")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    placeholder: "Todo..",
-                    "aria-label": "todo",
-                    "aria-describedby": "todo",
-                  },
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "btn btn-info", attrs: { type: "button" } },
-                  [_vm._v("Add")]
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("table", { staticClass: "table table-bordered mt-4" }, [
-              _c("thead", [
-                _c("th", [_vm._v("S.No")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Name")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Action")]),
-              ]),
-              _vm._v(" "),
-              _c("tbody", [
-                _c("tr", [
-                  _c("td"),
-                  _vm._v(" "),
-                  _c("td"),
-                  _vm._v(" "),
-                  _c("td"),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "input-group" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            placeholder: "Todo..",
+            "aria-label": "todo",
+            "aria-describedby": "todo",
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-info", attrs: { type: "button" } },
+          [_vm._v("Add")]
+        ),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("th", [_vm._v("S.No")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Action")]),
     ])
   },
 ]
@@ -40155,6 +40205,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/amd options */
+/******/ 	(() => {
+/******/ 		__webpack_require__.amdO = {};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
 /******/ 		var deferred = [];
@@ -40187,6 +40242,18 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -40209,6 +40276,21 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/harmony module decorator */
+/******/ 	(() => {
+/******/ 		__webpack_require__.hmd = (module) => {
+/******/ 			module = Object.create(module);
+/******/ 			if (!module.children) module.children = [];
+/******/ 			Object.defineProperty(module, 'exports', {
+/******/ 				enumerable: true,
+/******/ 				set: () => {
+/******/ 					throw new Error('ES Modules may not assign module.exports or exports.*, Use ESM export syntax, instead: ' + module.id);
+/******/ 				}
+/******/ 			});
+/******/ 			return module;
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

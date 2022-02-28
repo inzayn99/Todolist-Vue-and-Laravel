@@ -12,6 +12,7 @@
                             <button type="button" class="btn btn-info">Add</button>
                         </div>
                     </div>
+                    {{ todos }}
                     <table class="table table-bordered mt-4">
                         <thead>
                         <th>S.No</th>
@@ -19,10 +20,10 @@
                         <th>Action</th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                        <tr v-for="(todo,index) in todos" :key="index">
+                            <td>{{index}}</td>
+                            <td>{{todo.name}}</td>
+                            <td>Delete</td>
                         </tr>
                         </tbody>
                     </table>
@@ -34,8 +35,17 @@
 
 <script>
 export default {
+    data() {
+        return {
+            todos: [],
+            api: 'http://127.0.0.1:8000/api/todos'
+        }
+    },
     mounted() {
-        console.log('Component mounted.')
+        // get api data
+        this.axios.get(this.api).then(res => {
+            this.todos = res.data;
+        })
     }
 }
 </script>
