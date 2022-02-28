@@ -12,6 +12,17 @@
                             <button type="button" class="btn btn-info">Add</button>
                         </div>
                     </div>
+                    <table class="table table-bordered mt-4">
+                        <thead>
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                        </thead>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+
+                    </table>
                 </div>
             </div>
         </div>
