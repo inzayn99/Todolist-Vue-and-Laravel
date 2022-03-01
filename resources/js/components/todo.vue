@@ -3,7 +3,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Todo List</div>
+                    <div class="card-header"><b>Welcome to Vue.js TodoList</b></div>
 
                     <div class="card-body">
                         <div class="input-group">
@@ -13,12 +13,15 @@
                         </div>
                     </div>
                     {{ todos }}
-                    <table class="table table-bordered mt-4">
+                    <table class="table table-bordered mt-1">
                         <thead>
+                        <tr>
                         <th>S.No</th>
                         <th>Name</th>
                         <th>Action</th>
+                        </tr>
                         </thead>
+
                         <tbody>
                         <tr v-for="(todo,index) in todos" :key="index">
                             <td>{{index}}</td>

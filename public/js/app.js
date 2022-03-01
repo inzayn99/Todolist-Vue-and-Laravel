@@ -5297,6 +5297,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -27932,14 +27935,14 @@ var render = function () {
     _c("div", { staticClass: "row justify-content-center mt-5" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Todo List")]),
-          _vm._v(" "),
           _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
           _vm._v(
             "\n                " + _vm._s(_vm.todos) + "\n                "
           ),
-          _c("table", { staticClass: "table table-bordered mt-4" }, [
-            _vm._m(1),
+          _c("table", { staticClass: "table table-bordered mt-1" }, [
+            _vm._m(2),
             _vm._v(" "),
             _c(
               "tbody",
@@ -27961,6 +27964,14 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("b", [_vm._v("Welcome to Vue.js TodoList")]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -27990,11 +28001,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("th", [_vm._v("S.No")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Name")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Action")]),
+      _c("tr", [
+        _c("th", [_vm._v("S.No")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")]),
+      ]),
     ])
   },
 ]
