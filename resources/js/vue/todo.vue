@@ -3,7 +3,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><b>Welcome to Vue.js TodoList</b></div>
+                    <div class="card-header"><b>Vue TodoList</b></div>
 
                     <div class="card-body">
                         <div class="input-group">

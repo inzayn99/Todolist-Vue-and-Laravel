@@ -25,7 +25,7 @@
 
 </html>
 <script>
-    import TodoList from "../js/components/todo";
+    import TodoList from "../js/vue/todo";
     export default {
         components: {Todo}
     }

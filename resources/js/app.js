@@ -8,7 +8,7 @@ Vue.use(VueAxios, axios)
 
 window.Vue = require('vue').default;
 
-Vue.component('todo', require('./components/todo.vue').default);
+Vue.component('todo', require('./vue/todo.vue').default);
 
 
 const app = new Vue({
